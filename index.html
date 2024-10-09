@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nosso Primeiro Mês</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos básicos para as páginas */
+        .page {
+            display: none; /* Ocultar todas as páginas por padrão */
+            text-align: center;
+        }
+        .active {
+            display: block; /* Exibir apenas a página ativa */
+        }
+        .container {
+            margin: 20px;
+        }
+        .nav-buttons {
+            margin-top: 20px;
+        }
+        .nav-buttons button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        /* Estilo para a imagem menor */
+        .small-image {
+            max-width: 15%; /* Ajuste a largura máxima da imagem */
+            height: auto; /* Mantém a proporção da imagem */
+        }
+    </style>
+</head>
+<body>
+    <!-- Música de fundo -->
+    <audio id="background-music" loop>
+        <source src="my baby.mp3" type="audio/mp3">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <div class="container">
+        <!-- Botão para iniciar a música -->
+        <button onclick="startMusic()">Clica aqui pra dar play momo 🎶</button>
+
+        <!-- Página 1 -->
+        <div id="page-1" class="page active">
+            <h1>Feliz 1º mês, meu amor! 💖</h1>
+            <p>Hoje completamos nosso primeiro mês juntos, e eu não poderia estar mais feliz por ter você na minha vida. Mesmo à distância, cada momento contigo é especial. Te amo! 💖</p>
+            <img src="meu amorzinho.png" alt="Imagem Especial" class="small-image">
+        </div>
+
+        <!-- Página 2 (Escreva o que quiser aqui) -->
+        <div id="page-2" class="page">
+            <h1>Mais uma página para você, amor!</h1>
+            <p>Quero te lembrar de todos os momentos incríveis que ainda vamos viver juntos. Esse é só o começo de algo lindo.</p>
+        </div>
+
+        <!-- Página 3 (Escreva o que quiser aqui) -->
+        <div id="page-3" class="page">
+            <h1>Cada dia com você é especial! 💖</h1>
+            <p>Obrigado por me fazer feliz e por compartilhar esse mês incrível comigo. Mal posso esperar pelo nosso futuro juntos!</p>
+        </div>
+
+        <!-- Botões de navegação -->
+        <div class="nav-buttons">
+            <button id="prevBtn" onclick="prevPage()">Anterior</button>
+            <button id="nextBtn" onclick="nextPage()">Próxima</button>
+        </div>
+    </div>
+
+    <script>
+        // Função para controlar a navegação entre as páginas
+        let currentPage = 1;
+        const totalPages = 3; // Número de páginas
+
+        function showPage(page) {
+            // Oculta todas as páginas
+            for (let i = 1; i <= totalPages; i++) {
+                document.getElementById('page-' + i).classList.remove('active');
+            }
+            // Mostra a página selecionada
+            document.getElementById('page-' + page).classList.add('active');
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+
+        // Função para iniciar a música
+        function startMusic() {
+            const music = document.getElementById('background-music');
+            music.play(); // Inicia a reprodução
+        }
+
+        // Exibe a primeira página ao carregar
+        showPage(currentPage);
+    </script>
+</body>
+</html>
