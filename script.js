@@ -23,7 +23,7 @@ setInterval(createHeart, 500);
 
 
 let currentPage = 1;
-const totalPages = 8; // Número de páginas
+const totalPages = 9; // Número de páginas
 
 function showPage(page) {
     // Oculta todas as páginas
